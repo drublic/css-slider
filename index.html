@@ -20,26 +20,26 @@
 
 		/* User customizable settings */
 
-		#slide-1,
-		#slide-2,
-		#slide-3,
-		#slide-4 {
+		#slide-1 + li,
+		#slide-2 + li,
+		#slide-3 + li,
+		#slide-4 + li {
 			background-size: cover;
 		}
 
-		#slide-1 {
+		#slide-1 + li {
 			background-image: url('slide-1.jpg');
 		}
 
-		#slide-2 {
+		#slide-2 + li {
 			background-image: url('slide-2.jpg');
 		}
 
-		#slide-3 {
+		#slide-3 + li {
 			background-image: url('slide-3.jpg');
 		}
 
-		#slide-4 {
+		#slide-4 + li {
 			background-image: url('slide-4.jpg');
 		}
 
@@ -76,9 +76,9 @@
 
 					-webkit-transform: translate3d(0, 0, 0);
 					   -moz-transform: translate3d(0, 0, 0);
-						 -o-transform: translate3d(0, 0, 0);
-						-ms-transform: translate3d(0, 0, 0);
-							transform: translate3d(0, 0, 0);
+					     -o-transform: translate3d(0, 0, 0);
+					    -ms-transform: translate3d(0, 0, 0);
+					        transform: translate3d(0, 0, 0);
 
 					-webkit-backface-visibility: hidden;
 					   -moz-backface-visibility: hidden;
@@ -111,12 +111,16 @@
 							transition: opacity 750ms ease-in-out;
 				}
 
-					.slider-content > li:not(:target) {
+					.slider-content > span {
+						display: none;
+					}
+
+					.slider-content > span:not(:target) + li {
 						opacity: 0;
 						width: 0;
 					}
 
-					.slider-content > li:target,
+					.slider-content > span:target + li,
 					.slider-content > .active {
 						opacity: 1;
 						width: 100%;
@@ -238,19 +242,26 @@
 
 		<ol class="slider-content">
 
-			<li id="slide-1" class="active">
+			<span id="slide-1"></span>
+			<li class="active">
 				<h3>To the rocks!</h3>
 				<p>Fontainebleau is the ultimate Mekka for Boulderers…</p>
 			</li>
-			<li id="slide-2">
+
+			<span id="slide-2"></span>
+			<li>
 				<h3>Sunset over Berlin</h3>
 				<p>This beautiful picture has been taken in Berlin, Germany.</p>
 			</li>
-			<li id="slide-3">
+
+			<span id="slide-3"></span>
+			<li>
 				<h3>Sunset over Berlin</h3>
 				<p>This beautiful picture has been taken in Berlin, Germany.</p>
 			</li>
-			<li id="slide-4">
+
+			<span id="slide-4"></span>
+			<li>
 				<h3>Warsaw at Night</h3>
 				<p>Polands city Warsaw has a lovely center which looks spectacular a night.</p>
 			</li>
@@ -258,12 +269,10 @@
 		</ol>
 
 		<ol class="slider--bullets">
-
-			<li><a href="#slide-1" class="active"></a></li>
-			<li><a href="#slide-2"></a></li>
-			<li><a href="#slide-3"></a></li>
-			<li><a href="#slide-4"></a></li>
-
+			<li><a href="#slide-1" class="active">1</a></li>
+			<li><a href="#slide-2">2</a></li>
+			<li><a href="#slide-3">3</a></li>
+			<li><a href="#slide-4">4</a></li>
 		</ol>
 
 	</section>
